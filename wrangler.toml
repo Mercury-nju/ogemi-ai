@@ -1,9 +1,0 @@
-name = "ogemi-ai"
-compatibility_date = "2024-10-18"
-
-[env.production]
-name = "ogemi-ai"
-
-[[env.production.vars]]
-OPENAI_API_KEY = "sk-9bf19547ddbd4be1a87a7a43cf251097"
-NEXT_PUBLIC_APP_NAME = "Ogemi AI"
