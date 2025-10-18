@@ -48,20 +48,35 @@ export default function ChatInterface() {
     setIsLoading(true)
 
     try {
-      // 调用AI API
-      const response = await fetch('/api/chat', {
+      // 直接调用OpenAI API
+      const response = await fetch('https://api.openai.com/v1/chat/completions', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'Authorization': `Bearer sk-9bf19547ddbd4be1a87a7a43cf251097`,
         },
-        body: JSON.stringify({ message: inputValue }),
+        body: JSON.stringify({
+          model: 'gpt-3.5-turbo',
+          messages: [
+            {
+              role: 'system',
+              content: '你是Ogemi AI，一个友好、智能的AI助手。你能够帮助用户解决各种问题，提供有用的建议和信息。请用中文回复，保持友好和专业的语调。'
+            },
+            {
+              role: 'user',
+              content: inputValue
+            }
+          ],
+          max_tokens: 1000,
+          temperature: 0.7,
+        }),
       })
 
       const data = await response.json()
       
       const aiMessage: Message = {
         id: (Date.now() + 1).toString(),
-        content: data.response || '抱歉，我现在无法回应。请稍后再试。',
+        content: data.choices?.[0]?.message?.content || '抱歉，我现在无法回应。请稍后再试。',
         isUser: false,
         timestamp: new Date()
       }
