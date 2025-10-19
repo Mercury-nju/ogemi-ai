@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useRef, useEffect } from 'react'
-import { Send, Mic, MicOff, Bot, User, Sparkles, Loader2 } from 'lucide-react'
+import { Send, Mic, MicOff, Bot, User, Sparkles, Loader2, MoreVertical, Copy, ThumbsUp, ThumbsDown } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 
 interface Message {
@@ -108,30 +108,43 @@ export default function ChatInterface() {
     // 这里可以添加语音录制逻辑
   }
 
+  const copyToClipboard = (text: string) => {
+    navigator.clipboard.writeText(text)
+  }
+
   return (
-    <div className="w-full max-w-md mx-auto">
+    <div className="w-full max-w-lg mx-auto">
       <motion.div 
-        className="glass-effect rounded-3xl p-6 h-[600px] flex flex-col"
+        className="glass-effect-strong rounded-3xl h-[700px] flex flex-col overflow-hidden"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.4 }}
       >
-        {/* 聊天头部 */}
-        <div className="flex items-center space-x-3 pb-4 border-b border-white/20">
-          <div className="w-10 h-10 bg-gradient-to-br from-primary-400 to-primary-600 rounded-full flex items-center justify-center">
-            <Bot className="w-5 h-5 text-white" />
+        {/* 现代化聊天头部 */}
+        <div className="flex items-center justify-between p-6 border-b border-gray-800/50">
+          <div className="flex items-center space-x-4">
+            <div className="relative">
+              <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center shadow-lg">
+                <Bot className="w-6 h-6 text-white" />
+              </div>
+              <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-green-500 rounded-full border-2 border-gray-900"></div>
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold text-white">Ogemi AI</h3>
+              <p className="text-sm text-gray-400">在线 · 智能助手</p>
+            </div>
           </div>
-          <div>
-            <h3 className="text-white font-semibold">Ogemi AI</h3>
-            <p className="text-xs text-gray-400">在线</p>
-          </div>
-          <div className="ml-auto">
-            <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
-          </div>
+          <motion.button 
+            className="p-2 rounded-xl bg-gray-800/50 hover:bg-gray-700/50 transition-colors duration-200"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <MoreVertical className="w-5 h-5 text-gray-400" />
+          </motion.button>
         </div>
 
         {/* 消息列表 */}
-        <div className="flex-1 overflow-y-auto py-4 space-y-4 scrollbar-hide">
+        <div className="flex-1 overflow-y-auto py-6 px-6 space-y-6 scrollbar-thin">
           <AnimatePresence>
             {messages.map((message) => (
               <motion.div
@@ -142,11 +155,12 @@ export default function ChatInterface() {
                 exit={{ opacity: 0, y: -20 }}
                 transition={{ duration: 0.3 }}
               >
-                <div className={`flex items-start space-x-2 max-w-[80%] ${message.isUser ? 'flex-row-reverse space-x-reverse' : ''}`}>
-                  <div className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 ${
+                <div className={`flex items-start space-x-3 max-w-[85%] ${message.isUser ? 'flex-row-reverse space-x-reverse' : ''}`}>
+                  {/* 头像 */}
+                  <div className={`w-8 h-8 rounded-xl flex items-center justify-center flex-shrink-0 ${
                     message.isUser 
-                      ? 'bg-primary-600' 
-                      : 'bg-dark-600'
+                      ? 'bg-gradient-to-br from-blue-500 to-blue-600' 
+                      : 'bg-gradient-to-br from-gray-700 to-gray-800'
                   }`}>
                     {message.isUser ? (
                       <User className="w-4 h-4 text-white" />
@@ -154,12 +168,50 @@ export default function ChatInterface() {
                       <Bot className="w-4 h-4 text-white" />
                     )}
                   </div>
-                  <div className={`chat-bubble ${
-                    message.isUser ? 'chat-bubble-user' : 'chat-bubble-ai'
-                  }`}>
-                    <p className="text-sm leading-relaxed">{message.content}</p>
-                    <p className={`text-xs mt-1 ${
-                      message.isUser ? 'text-primary-100' : 'text-gray-400'
+                  
+                  {/* 消息内容 */}
+                  <div className="flex flex-col space-y-2">
+                    <div className={`chat-bubble ${
+                      message.isUser ? 'chat-bubble-user' : 'chat-bubble-ai'
+                    }`}>
+                      <p className="text-sm leading-relaxed text-white">{message.content}</p>
+                    </div>
+                    
+                    {/* 消息操作 */}
+                    {!message.isUser && (
+                      <motion.div 
+                        className="flex items-center space-x-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+                        initial={{ opacity: 0 }}
+                        whileHover={{ opacity: 1 }}
+                      >
+                        <motion.button 
+                          className="p-1.5 rounded-lg bg-gray-800/50 hover:bg-gray-700/50 transition-colors duration-200"
+                          whileHover={{ scale: 1.05 }}
+                          whileTap={{ scale: 0.95 }}
+                          onClick={() => copyToClipboard(message.content)}
+                        >
+                          <Copy className="w-3 h-3 text-gray-400" />
+                        </motion.button>
+                        <motion.button 
+                          className="p-1.5 rounded-lg bg-gray-800/50 hover:bg-gray-700/50 transition-colors duration-200"
+                          whileHover={{ scale: 1.05 }}
+                          whileTap={{ scale: 0.95 }}
+                        >
+                          <ThumbsUp className="w-3 h-3 text-gray-400" />
+                        </motion.button>
+                        <motion.button 
+                          className="p-1.5 rounded-lg bg-gray-800/50 hover:bg-gray-700/50 transition-colors duration-200"
+                          whileHover={{ scale: 1.05 }}
+                          whileTap={{ scale: 0.95 }}
+                        >
+                          <ThumbsDown className="w-3 h-3 text-gray-400" />
+                        </motion.button>
+                      </motion.div>
+                    )}
+                    
+                    {/* 时间戳 */}
+                    <p className={`text-xs ${
+                      message.isUser ? 'text-blue-300/70 text-right' : 'text-gray-500'
                     }`}>
                       {message.timestamp.toLocaleTimeString('zh-CN', { 
                         hour: '2-digit', 
@@ -172,20 +224,25 @@ export default function ChatInterface() {
             ))}
           </AnimatePresence>
           
+          {/* 加载状态 */}
           {isLoading && (
             <motion.div
               className="flex justify-start"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
             >
-              <div className="flex items-start space-x-2">
-                <div className="w-8 h-8 rounded-full bg-dark-600 flex items-center justify-center">
+              <div className="flex items-start space-x-3">
+                <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-gray-700 to-gray-800 flex items-center justify-center">
                   <Bot className="w-4 h-4 text-white" />
                 </div>
                 <div className="chat-bubble chat-bubble-ai">
-                  <div className="flex items-center space-x-2">
-                    <Loader2 className="w-4 h-4 animate-spin" />
-                    <span className="text-sm">正在思考...</span>
+                  <div className="flex items-center space-x-3">
+                    <div className="flex space-x-1">
+                      <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce"></div>
+                      <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
+                      <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
+                    </div>
+                    <span className="text-sm text-gray-300">正在思考...</span>
                   </div>
                 </div>
               </div>
@@ -195,27 +252,31 @@ export default function ChatInterface() {
           <div ref={messagesEndRef} />
         </div>
 
-        {/* 输入区域 */}
-        <div className="pt-4 border-t border-white/20">
-          <div className="flex items-end space-x-2">
+        {/* 现代化输入区域 */}
+        <div className="p-6 border-t border-gray-800/50">
+          <div className="flex items-end space-x-3">
             <div className="flex-1 relative">
               <textarea
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)}
                 onKeyPress={handleKeyPress}
                 placeholder="输入您的消息..."
-                className="w-full bg-dark-700/50 border border-white/20 rounded-2xl px-4 py-3 text-white placeholder-gray-400 resize-none focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                className="input-modern w-full resize-none rounded-2xl px-4 py-3 pr-12"
                 rows={1}
                 style={{ minHeight: '48px', maxHeight: '120px' }}
               />
+              <div className="absolute right-3 top-1/2 transform -translate-y-1/2">
+                <span className="text-xs text-gray-500">Enter 发送</span>
+              </div>
             </div>
             
+            {/* 语音按钮 */}
             <motion.button
               onClick={toggleRecording}
-              className={`p-3 rounded-2xl transition-colors duration-200 ${
+              className={`p-3 rounded-2xl transition-all duration-200 ${
                 isRecording 
-                  ? 'bg-red-500 hover:bg-red-600' 
-                  : 'bg-dark-600 hover:bg-dark-500'
+                  ? 'bg-red-500 hover:bg-red-600 shadow-lg shadow-red-500/25' 
+                  : 'bg-gray-800/50 hover:bg-gray-700/50 border border-gray-700/50'
               }`}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -223,19 +284,47 @@ export default function ChatInterface() {
               {isRecording ? (
                 <MicOff className="w-5 h-5 text-white" />
               ) : (
-                <Mic className="w-5 h-5 text-white" />
+                <Mic className="w-5 h-5 text-gray-400" />
               )}
             </motion.button>
             
+            {/* 发送按钮 */}
             <motion.button
               onClick={handleSendMessage}
               disabled={!inputValue.trim() || isLoading}
-              className="p-3 bg-primary-600 hover:bg-primary-700 disabled:bg-dark-600 disabled:cursor-not-allowed rounded-2xl transition-colors duration-200"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+              className={`p-3 rounded-2xl transition-all duration-200 ${
+                inputValue.trim() && !isLoading
+                  ? 'bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 shadow-lg shadow-blue-500/25'
+                  : 'bg-gray-800/50 border border-gray-700/50 cursor-not-allowed'
+              }`}
+              whileHover={inputValue.trim() && !isLoading ? { scale: 1.05 } : {}}
+              whileTap={inputValue.trim() && !isLoading ? { scale: 0.95 } : {}}
             >
-              <Send className="w-5 h-5 text-white" />
+              <Send className={`w-5 h-5 ${inputValue.trim() && !isLoading ? 'text-white' : 'text-gray-500'}`} />
             </motion.button>
+          </div>
+          
+          {/* 快捷操作 */}
+          <div className="flex items-center justify-between mt-3">
+            <div className="flex items-center space-x-2">
+              <span className="text-xs text-gray-500">快捷操作：</span>
+              <motion.button 
+                className="text-xs text-blue-400 hover:text-blue-300 transition-colors duration-200"
+                whileHover={{ scale: 1.05 }}
+              >
+                清除对话
+              </motion.button>
+              <span className="text-gray-600">·</span>
+              <motion.button 
+                className="text-xs text-blue-400 hover:text-blue-300 transition-colors duration-200"
+                whileHover={{ scale: 1.05 }}
+              >
+                导出记录
+              </motion.button>
+            </div>
+            <div className="text-xs text-gray-500">
+              {messages.length} 条消息
+            </div>
           </div>
         </div>
       </motion.div>
