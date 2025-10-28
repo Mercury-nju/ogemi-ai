@@ -98,10 +98,3 @@ export async function POST(request: NextRequest) {
   }
 }
 
-// 配置API路由
-export const config = {
-  api: {
-    bodyParser: false,
-  },
-}
-
