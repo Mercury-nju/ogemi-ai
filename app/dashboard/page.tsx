@@ -172,7 +172,7 @@ export default function Dashboard() {
                   
                   <div className="p-4">
                     <h3 className="text-white font-semibold mb-2">{video.title}</h3>
-                    <p className="text-gray-400 text-sm mb-3 line-clamp-2">"{video.prompt}"</p>
+                    <p className="text-gray-400 text-sm mb-3 line-clamp-2">&quot;{video.prompt}&quot;</p>
                     <div className="flex items-center justify-between text-gray-500 text-xs mb-3">
                       <span>{new Date(video.createdAt).toLocaleDateString()}</span>
                       <span>{video.duration}s</span>

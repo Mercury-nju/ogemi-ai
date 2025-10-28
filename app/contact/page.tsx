@@ -36,7 +36,7 @@ export default function Contact() {
             </span>
           </h1>
           <p className="text-gray-400 text-lg">
-            Have questions? We'd love to hear from you. Send us a message and we'll respond as soon as possible.
+            Have questions? We&apos;d love to hear from you. Send us a message and we&apos;ll respond as soon as possible.
           </p>
         </div>
 
@@ -83,7 +83,7 @@ export default function Contact() {
               {submitted && (
                 <div className="mb-6 bg-green-500/10 border border-green-500 rounded-lg p-4">
                   <p className="text-green-400 text-center">
-                    ✓ Message sent successfully! We'll get back to you soon.
+                    ✓ Message sent successfully! We&apos;ll get back to you soon.
                   </p>
                 </div>
               )}

@@ -92,7 +92,7 @@ export default function Gallery() {
                 <div className="absolute bottom-0 left-0 right-0 p-4">
                   <h3 className="text-white font-bold text-lg mb-1">{item.title}</h3>
                   <p className="text-gray-300 text-sm mb-2">{item.description}</p>
-                  <p className="text-gray-400 text-xs italic">"{item.prompt}"</p>
+                  <p className="text-gray-400 text-xs italic">&quot;{item.prompt}&quot;</p>
                 </div>
               </div>
 
@@ -133,7 +133,7 @@ export default function Gallery() {
                   <p className="text-gray-400 mb-4">{selectedVideo.description}</p>
                   <div className="bg-gray-800 rounded-lg p-4">
                     <p className="text-gray-500 text-sm mb-1">Prompt used:</p>
-                    <p className="text-purple-400 italic">"{selectedVideo.prompt}"</p>
+                    <p className="text-purple-400 italic">&quot;{selectedVideo.prompt}&quot;</p>
                   </div>
                 </div>
               </div>
