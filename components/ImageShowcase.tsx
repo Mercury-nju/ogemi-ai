@@ -40,12 +40,13 @@ const imageCategories = {
     },
   ],
   anime: [
+    // 可爱萌系
     {
       id: 'anime-1',
       url: '/showcase/5.jpg',
       title: '可爱学园少女',
       prompt: 'Cute anime schoolgirl, kawaii style, big expressive eyes, school uniform, pastel colors, high quality anime art',
-      likes: 5234,
+      likes: 8234,
       category: 'anime'
     },
     {
@@ -53,47 +54,137 @@ const imageCategories = {
       url: '/showcase/6.jpg',
       title: '梦幻魔法少女',
       prompt: 'Adorable magical girl, sparkles and stars, cute pose, soft colors, detailed anime illustration, kawaii aesthetic',
-      likes: 4876,
+      likes: 7876,
       category: 'anime'
     },
     {
       id: 'anime-3',
-      url: '/gallery/portrait_6.jpg',
+      url: '/gallery/abstract_31.jpg',
       title: '粉色长发少女',
-      prompt: 'Pink hair anime girl, gentle smile, beautiful eyes, soft lighting, detailed character design',
-      likes: 6543,
+      prompt: 'Pink hair anime girl, gentle smile, beautiful eyes, soft lighting, detailed character design, kawaii',
+      likes: 9543,
       category: 'anime'
     },
     {
       id: 'anime-4',
-      url: '/gallery/portrait_7.jpg',
+      url: '/gallery/abstract_32.jpg',
       title: '制服美少女',
-      prompt: 'School uniform anime girl, elegant pose, classic beauty, high quality illustration',
-      likes: 5897,
+      prompt: 'School uniform anime girl, elegant pose, classic beauty, high quality illustration, detailed face',
+      likes: 8897,
       category: 'anime'
     },
     {
       id: 'anime-5',
-      url: '/gallery/portrait_8.jpg',
+      url: '/gallery/abstract_33.jpg',
       title: '银发精灵',
-      prompt: 'Silver hair anime elf girl, mystical atmosphere, detailed fantasy character',
-      likes: 7234,
+      prompt: 'Silver hair anime elf girl, mystical atmosphere, detailed fantasy character, beautiful eyes',
+      likes: 10234,
       category: 'anime'
     },
     {
       id: 'anime-6',
-      url: '/gallery/portrait_9.jpg',
+      url: '/gallery/abstract_34.jpg',
       title: '甜美偶像',
-      prompt: 'Sweet idol anime girl, cute expression, stage outfit, vibrant colors',
-      likes: 6123,
+      prompt: 'Sweet idol anime girl, cute expression, stage outfit, vibrant colors, kawaii aesthetic',
+      likes: 9123,
       category: 'anime'
     },
     {
       id: 'anime-7',
-      url: '/gallery/portrait_10.jpg',
+      url: '/gallery/abstract_35.jpg',
       title: '优雅公主',
-      prompt: 'Elegant anime princess, royal dress, sophisticated design, beautiful illustration',
-      likes: 5678,
+      prompt: 'Elegant anime princess, royal dress, sophisticated design, beautiful illustration, detailed',
+      likes: 8678,
+      category: 'anime'
+    },
+    {
+      id: 'anime-8',
+      url: '/gallery/abstract_36.jpg',
+      title: '猫耳萌娘',
+      prompt: 'Cute anime cat girl with cat ears, neko maid, moe style, vibrant colors, detailed character design',
+      likes: 11543,
+      category: 'anime'
+    },
+    {
+      id: 'anime-9',
+      url: '/gallery/abstract_37.jpg',
+      title: '星空女神',
+      prompt: 'Anime goddess with star theme, cosmic background, ethereal beauty, detailed illustration',
+      likes: 9876,
+      category: 'anime'
+    },
+    {
+      id: 'anime-10',
+      url: '/gallery/abstract_38.jpg',
+      title: '机械少女',
+      prompt: 'Cyberpunk anime girl, mechanical parts, futuristic design, detailed sci-fi character',
+      likes: 10123,
+      category: 'anime'
+    },
+    {
+      id: 'anime-11',
+      url: '/gallery/abstract_39.jpg',
+      title: '樱花仙子',
+      prompt: 'Cherry blossom fairy anime girl, pink petals, magical atmosphere, soft colors, beautiful',
+      likes: 9234,
+      category: 'anime'
+    },
+    {
+      id: 'anime-12',
+      url: '/gallery/abstract_40.jpg',
+      title: '元气少女',
+      prompt: 'Energetic anime girl, cheerful expression, vibrant pose, colorful outfit, high energy',
+      likes: 8765,
+      category: 'anime'
+    },
+    // 帅气男性角色
+    {
+      id: 'anime-13',
+      url: '/gallery/urban_25.jpg',
+      title: '冷峻剑士',
+      prompt: 'Cool anime swordsman, serious expression, detailed armor, action pose, shounen style',
+      likes: 12345,
+      category: 'anime'
+    },
+    {
+      id: 'anime-14',
+      url: '/gallery/urban_26.jpg',
+      title: '神秘魔法师',
+      prompt: 'Mysterious anime wizard boy, magical staff, dark robe, dramatic lighting, fantasy style',
+      likes: 10987,
+      category: 'anime'
+    },
+    {
+      id: 'anime-15',
+      url: '/gallery/urban_27.jpg',
+      title: '热血主角',
+      prompt: 'Hot-blooded anime protagonist, determined eyes, spiky hair, action stance, shounen hero',
+      likes: 13456,
+      category: 'anime'
+    },
+    // 不同风格
+    {
+      id: 'anime-16',
+      url: '/gallery/urban_28.jpg',
+      title: '双马尾少女',
+      prompt: 'Twin tail anime girl, cute hairstyle, school uniform, cheerful smile, moe character',
+      likes: 9654,
+      category: 'anime'
+    },
+    {
+      id: 'anime-17',
+      url: '/gallery/urban_29.jpg',
+      title: '酷帅女骑士',
+      prompt: 'Cool female knight anime, silver armor, sword, strong pose, heroic character',
+      likes: 11234,
+      category: 'anime'
+    },
+    {
+      id: 'anime-18',
+      url: '/gallery/urban_30.jpg',
+      title: '温柔治愈系',
+      prompt: 'Gentle healing anime girl, soft smile, warm atmosphere, pastel colors, soothing character',
+      likes: 8901,
       category: 'anime'
     },
   ],
@@ -402,8 +493,8 @@ export default function ImageShowcase() {
 
   const categories = [
     { id: 'all', label: '全部作品', count: allImages.length },
+    { id: 'anime', label: '二次元角色', count: animeCount },
     { id: 'realistic', label: '真实肖像', count: realisticCount },
-    { id: 'anime', label: '可爱二次元', count: animeCount },
     { id: 'sexy', label: '性感角色', count: sexyCount },
     { id: 'creative', label: '创意作品', count: creativeCount },
   ]
