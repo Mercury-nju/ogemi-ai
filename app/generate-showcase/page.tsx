@@ -132,6 +132,7 @@ export default function GenerateShowcase() {
                   
                   {task.image_url && (
                     <div>
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img src={task.image_url} alt={task.prompt} className="w-full rounded-lg" />
                       <a
                         href={task.image_url}
@@ -152,8 +153,8 @@ export default function GenerateShowcase() {
         <div className="mt-12 bg-gray-900 border border-gray-800 rounded-xl p-6">
           <h3 className="text-white font-semibold mb-4">使用说明</h3>
           <ol className="text-gray-400 space-y-2 list-decimal list-inside">
-            <li>点击"生成 8 张展示图"按钮开始生成</li>
-            <li>等待几秒后，点击"检查所有任务状态"查看生成进度</li>
+            <li>点击&quot;生成 8 张展示图&quot;按钮开始生成</li>
+            <li>等待几秒后，点击&quot;检查所有任务状态&quot;查看生成进度</li>
             <li>图片生成完成后会显示在下方</li>
             <li>下载图片并保存到 <code className="bg-gray-800 px-2 py-1 rounded">public/showcase/</code> 目录</li>
             <li>命名为 1.jpg, 2.jpg, ... 8.jpg</li>
