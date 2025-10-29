@@ -1,33 +1,68 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
+import { useEffect, useState } from 'react'
+import Image from 'next/image'
+
+const showcaseImages = [
+  '/showcase/1.jpg',
+  '/showcase/2.jpg',
+  '/showcase/3.jpg',
+  '/showcase/4.jpg',
+  '/showcase/5.jpg',
+  '/showcase/6.jpg',
+  '/showcase/7.jpg',
+  '/showcase/8.jpg',
+]
 
 export default function Hero() {
-  const videoRef = useRef<HTMLVideoElement>(null)
+  const [loadedImages, setLoadedImages] = useState<string[]>([])
 
   useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.play().catch(error => {
-        console.log('Auto-play was prevented:', error)
-      })
+    // 预加载图片
+    const loadImages = async () => {
+      const loaded: string[] = []
+      for (const img of showcaseImages) {
+        try {
+          // 检查图片是否存在
+          const response = await fetch(img, { method: 'HEAD' })
+          if (response.ok) {
+            loaded.push(img)
+          }
+        } catch {
+          // 图片不存在，使用渐变占位
+        }
+      }
+      setLoadedImages(loaded)
     }
+    loadImages()
   }, [])
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
-      {/* Background Video Grid */}
-      <div className="absolute inset-0 grid grid-cols-4 gap-0 opacity-20">
-        {[...Array(8)].map((_, i) => (
-          <div key={i} className="relative w-full h-[50vh] bg-gray-900">
-            <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 to-pink-600/20 animate-pulse" 
-                 style={{ animationDelay: `${i * 0.2}s` }}
-            />
+      {/* Background Image Grid */}
+      <div className="absolute inset-0 grid grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-0 opacity-30">
+        {showcaseImages.map((img, i) => (
+          <div key={i} className="relative w-full aspect-square overflow-hidden">
+            {loadedImages.includes(img) ? (
+              <Image
+                src={img}
+                alt={`Showcase ${i + 1}`}
+                fill
+                className="object-cover animate-pulse"
+                style={{ animationDelay: `${i * 0.3}s`, animationDuration: '3s' }}
+              />
+            ) : (
+              <div 
+                className="w-full h-full bg-gradient-to-br from-purple-600/30 to-pink-600/30 animate-pulse"
+                style={{ animationDelay: `${i * 0.3}s` }}
+              />
+            )}
           </div>
         ))}
       </div>
 
       {/* Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/50 to-black/80" />
 
       {/* Content */}
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
