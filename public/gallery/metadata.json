@@ -1,0 +1,282 @@
+[
+  {
+    "id": 1,
+    "filename": "portrait_1.jpg",
+    "category": "portrait",
+    "prompt": "Professional portrait of a confident businesswoman in modern office, natural lighting, 4k quality",
+    "path": "/gallery/portrait_1.jpg"
+  },
+  {
+    "id": 2,
+    "filename": "portrait_2.jpg",
+    "category": "portrait",
+    "prompt": "Close-up portrait of a young man with striking blue eyes, dramatic lighting, cinematic style",
+    "path": "/gallery/portrait_2.jpg"
+  },
+  {
+    "id": 3,
+    "filename": "portrait_3.jpg",
+    "category": "portrait",
+    "prompt": "Fashion portrait of elegant woman in red dress, studio lighting, vogue style photography",
+    "path": "/gallery/portrait_3.jpg"
+  },
+  {
+    "id": 4,
+    "filename": "portrait_4.jpg",
+    "category": "portrait",
+    "prompt": "Portrait of elderly man with wisdom in his eyes, black and white photography, fine art style",
+    "path": "/gallery/portrait_4.jpg"
+  },
+  {
+    "id": 5,
+    "filename": "portrait_5.jpg",
+    "category": "portrait",
+    "prompt": "Young woman with colorful hair and creative makeup, vibrant colors, artistic portrait",
+    "path": "/gallery/portrait_5.jpg"
+  },
+  {
+    "id": 6,
+    "filename": "portrait_6.jpg",
+    "category": "portrait",
+    "prompt": "Professional headshot of smiling Asian woman, soft lighting, corporate photography",
+    "path": "/gallery/portrait_6.jpg"
+  },
+  {
+    "id": 7,
+    "filename": "portrait_7.jpg",
+    "category": "portrait",
+    "prompt": "Portrait of athlete in action pose, dynamic lighting, sports photography style",
+    "path": "/gallery/portrait_7.jpg"
+  },
+  {
+    "id": 8,
+    "filename": "portrait_8.jpg",
+    "category": "portrait",
+    "prompt": "Artistic portrait with double exposure effect, nature and face combined, creative photography",
+    "path": "/gallery/portrait_8.jpg"
+  },
+  {
+    "id": 9,
+    "filename": "portrait_9.jpg",
+    "category": "portrait",
+    "prompt": "Child laughing with pure joy, candid moment, natural outdoor lighting",
+    "path": "/gallery/portrait_9.jpg"
+  },
+  {
+    "id": 10,
+    "filename": "portrait_10.jpg",
+    "category": "portrait",
+    "prompt": "Mysterious portrait with shadow play, noir style, high contrast black and white",
+    "path": "/gallery/portrait_10.jpg"
+  },
+  {
+    "id": 11,
+    "filename": "landscape_11.jpg",
+    "category": "landscape",
+    "prompt": "Majestic mountain landscape at golden hour, dramatic clouds, epic vista, 8k quality",
+    "path": "/gallery/landscape_11.jpg"
+  },
+  {
+    "id": 12,
+    "filename": "landscape_12.jpg",
+    "category": "landscape",
+    "prompt": "Serene lake reflection with mountains, misty morning, peaceful atmosphere",
+    "path": "/gallery/landscape_12.jpg"
+  },
+  {
+    "id": 13,
+    "filename": "landscape_13.jpg",
+    "category": "landscape",
+    "prompt": "Dramatic seascape with crashing waves, stormy sky, powerful ocean scene",
+    "path": "/gallery/landscape_13.jpg"
+  },
+  {
+    "id": 14,
+    "filename": "landscape_14.jpg",
+    "category": "landscape",
+    "prompt": "Autumn forest path with colorful leaves, soft sunlight filtering through trees",
+    "path": "/gallery/landscape_14.jpg"
+  },
+  {
+    "id": 15,
+    "filename": "landscape_15.jpg",
+    "category": "landscape",
+    "prompt": "Desert dunes at sunset, golden sand waves, minimalist landscape photography",
+    "path": "/gallery/landscape_15.jpg"
+  },
+  {
+    "id": 16,
+    "filename": "landscape_16.jpg",
+    "category": "landscape",
+    "prompt": "Northern lights over snowy landscape, aurora borealis, magical night sky",
+    "path": "/gallery/landscape_16.jpg"
+  },
+  {
+    "id": 17,
+    "filename": "landscape_17.jpg",
+    "category": "landscape",
+    "prompt": "Tropical beach paradise, crystal clear water, white sand, palm trees",
+    "path": "/gallery/landscape_17.jpg"
+  },
+  {
+    "id": 18,
+    "filename": "landscape_18.jpg",
+    "category": "landscape",
+    "prompt": "Misty valley with river flowing through, ethereal morning fog, dreamy landscape",
+    "path": "/gallery/landscape_18.jpg"
+  },
+  {
+    "id": 19,
+    "filename": "landscape_19.jpg",
+    "category": "landscape",
+    "prompt": "Cherry blossom trees in full bloom, pink petals falling, spring in Japan",
+    "path": "/gallery/landscape_19.jpg"
+  },
+  {
+    "id": 20,
+    "filename": "landscape_20.jpg",
+    "category": "landscape",
+    "prompt": "Grand canyon vista at sunrise, layered rock formations, epic scale",
+    "path": "/gallery/landscape_20.jpg"
+  },
+  {
+    "id": 21,
+    "filename": "urban_21.jpg",
+    "category": "urban",
+    "prompt": "Futuristic cyberpunk city at night, neon lights, flying cars, sci-fi metropolis",
+    "path": "/gallery/urban_21.jpg"
+  },
+  {
+    "id": 22,
+    "filename": "urban_22.jpg",
+    "category": "urban",
+    "prompt": "New York City skyline at sunset, iconic skyscrapers, urban photography",
+    "path": "/gallery/urban_22.jpg"
+  },
+  {
+    "id": 23,
+    "filename": "urban_23.jpg",
+    "category": "urban",
+    "prompt": "Cozy European street café, outdoor seating, charming old town atmosphere",
+    "path": "/gallery/urban_23.jpg"
+  },
+  {
+    "id": 24,
+    "filename": "urban_24.jpg",
+    "category": "urban",
+    "prompt": "Modern architecture with glass and steel, minimalist design, contemporary building",
+    "path": "/gallery/urban_24.jpg"
+  },
+  {
+    "id": 25,
+    "filename": "urban_25.jpg",
+    "category": "urban",
+    "prompt": "Busy Tokyo street crossing at night, neon signs, urban energy",
+    "path": "/gallery/urban_25.jpg"
+  },
+  {
+    "id": 26,
+    "filename": "urban_26.jpg",
+    "category": "urban",
+    "prompt": "Venice canal with gondola, romantic Italian architecture, golden hour",
+    "path": "/gallery/urban_26.jpg"
+  },
+  {
+    "id": 27,
+    "filename": "urban_27.jpg",
+    "category": "urban",
+    "prompt": "Graffiti street art on urban wall, vibrant colors, contemporary art",
+    "path": "/gallery/urban_27.jpg"
+  },
+  {
+    "id": 28,
+    "filename": "urban_28.jpg",
+    "category": "urban",
+    "prompt": "Aerial view of city at night, illuminated streets, urban landscape from above",
+    "path": "/gallery/urban_28.jpg"
+  },
+  {
+    "id": 29,
+    "filename": "urban_29.jpg",
+    "category": "urban",
+    "prompt": "Modern subway station with futuristic design, clean lines, architectural photography",
+    "path": "/gallery/urban_29.jpg"
+  },
+  {
+    "id": 30,
+    "filename": "urban_30.jpg",
+    "category": "urban",
+    "prompt": "Rain-soaked city street at night, reflections on pavement, moody urban scene",
+    "path": "/gallery/urban_30.jpg"
+  },
+  {
+    "id": 31,
+    "filename": "abstract_31.jpg",
+    "category": "abstract",
+    "prompt": "Abstract digital art with flowing colors, fluid dynamics, contemporary abstract",
+    "path": "/gallery/abstract_31.jpg"
+  },
+  {
+    "id": 32,
+    "filename": "abstract_32.jpg",
+    "category": "abstract",
+    "prompt": "Geometric patterns in vibrant colors, modern graphic design, minimalist art",
+    "path": "/gallery/abstract_32.jpg"
+  },
+  {
+    "id": 33,
+    "filename": "abstract_33.jpg",
+    "category": "abstract",
+    "prompt": "Surreal dreamscape with floating islands, fantasy art, imaginative composition",
+    "path": "/gallery/abstract_33.jpg"
+  },
+  {
+    "id": 34,
+    "filename": "abstract_34.jpg",
+    "category": "abstract",
+    "prompt": "Watercolor painting of flowers, soft colors, artistic illustration style",
+    "path": "/gallery/abstract_34.jpg"
+  },
+  {
+    "id": 35,
+    "filename": "abstract_35.jpg",
+    "category": "abstract",
+    "prompt": "3D render of futuristic object, metallic surface, product design visualization",
+    "path": "/gallery/abstract_35.jpg"
+  },
+  {
+    "id": 36,
+    "filename": "abstract_36.jpg",
+    "category": "abstract",
+    "prompt": "Mandala pattern with intricate details, sacred geometry, symmetrical design",
+    "path": "/gallery/abstract_36.jpg"
+  },
+  {
+    "id": 37,
+    "filename": "abstract_37.jpg",
+    "category": "abstract",
+    "prompt": "Space nebula with stars and cosmic dust, astronomy photography, deep space",
+    "path": "/gallery/abstract_37.jpg"
+  },
+  {
+    "id": 38,
+    "filename": "abstract_38.jpg",
+    "category": "abstract",
+    "prompt": "Liquid metal abstract sculpture, reflective surface, modern art installation",
+    "path": "/gallery/abstract_38.jpg"
+  },
+  {
+    "id": 39,
+    "filename": "abstract_39.jpg",
+    "category": "abstract",
+    "prompt": "Paper art with origami animals, layered design, crafted aesthetic",
+    "path": "/gallery/abstract_39.jpg"
+  },
+  {
+    "id": 40,
+    "filename": "abstract_40.jpg",
+    "category": "abstract",
+    "prompt": "Glowing particles forming abstract shape, light painting, long exposure effect",
+    "path": "/gallery/abstract_40.jpg"
+  }
+]

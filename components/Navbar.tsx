@@ -21,17 +21,17 @@ export default function Navbar() {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            <Link href="/#features" className="text-gray-300 hover:text-white transition-colors">
-              Features
+            <Link href="/text-to-image" className="text-gray-300 hover:text-white transition-colors">
+              文生图
+            </Link>
+            <Link href="/image-editor" className="text-gray-300 hover:text-white transition-colors">
+              图片编辑
+            </Link>
+            <Link href="/gallery" className="text-gray-300 hover:text-white transition-colors">
+              作品画廊
             </Link>
             <Link href="/pricing" className="text-gray-300 hover:text-white transition-colors">
-              Pricing
-            </Link>
-            <Link href="/#gallery" className="text-gray-300 hover:text-white transition-colors">
-              Gallery
-            </Link>
-            <Link href="/dashboard" className="text-gray-300 hover:text-white transition-colors">
-              Dashboard
+              定价
             </Link>
           </div>
 

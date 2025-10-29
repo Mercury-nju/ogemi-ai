@@ -7,11 +7,11 @@ export default function Features() {
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
             <span className="bg-gradient-to-r from-purple-400 to-pink-600 bg-clip-text text-transparent">
-              Create Viral Videos with AI Effects
+              为什么选择我们的AI创作平台
             </span>
           </h2>
           <p className="text-gray-400 text-lg">
-            One click to recreate trending effects and get millions of likes
+            强大的AI技术，简单的操作体验，无限的创作可能
           </p>
         </div>
 
@@ -23,9 +23,9 @@ export default function Features() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
               </svg>
             </div>
-            <h3 className="text-white text-xl font-bold mb-3">Lightning Fast</h3>
+            <h3 className="text-white text-xl font-bold mb-3">闪电般快速</h3>
             <p className="text-gray-400">
-              Generate professional videos in seconds. Our AI processes your images instantly with cutting-edge technology.
+              平均8秒即可生成高质量图片。我们的AI采用最先进的技术，让创作变得前所未有的快速。
             </p>
           </div>
 
@@ -36,9 +36,9 @@ export default function Features() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
               </svg>
             </div>
-            <h3 className="text-white text-xl font-bold mb-3">Smart AI Effects</h3>
+            <h3 className="text-white text-xl font-bold mb-3">智能AI技术</h3>
             <p className="text-gray-400">
-              Access hundreds of viral effects powered by advanced AI. From subtle movements to dramatic transformations.
+              采用通义千问企业级AI模型，支持多种艺术风格。从写实到动漫，从油画到赛博朋克，应有尽有。
             </p>
           </div>
 

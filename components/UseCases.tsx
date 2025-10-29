@@ -4,32 +4,32 @@ import { useState } from 'react'
 
 const useCases = [
   {
-    id: 'influencers',
-    title: 'Influencers',
-    heading: 'Grow your audience 5x faster',
-    description: 'Wula.ai turns your images into dynamic videos effortlessly. Create trendy content that keeps followers engaged and your social media profile fresh.',
-    icon: '🎬',
-  },
-  {
-    id: 'creators',
-    title: 'Content Creators',
-    heading: 'Never run out of content ideas',
-    description: 'Transform your photo library into endless video content. Turn every image into a story that captivates your audience and boosts engagement.',
-    icon: '✨',
+    id: 'designers',
+    title: '设计师',
+    heading: '快速实现创意构想',
+    description: '无需复杂的设计软件，只需描述您的想法，AI就能帮您生成专业级的视觉作品。从概念到成品，只需几秒钟。',
+    icon: '🎨',
   },
   {
     id: 'marketers',
-    title: 'Product Marketers',
-    heading: 'Make products come alive',
-    description: 'Showcase your products in motion with stunning AI-generated videos. Increase conversions with dynamic visuals that grab attention.',
+    title: '营销人员',
+    heading: '打造吸睛营销素材',
+    description: '快速生成高质量的营销图片，提升品牌视觉形象。多种风格随心切换，让每次营销活动都与众不同。',
     icon: '🚀',
   },
   {
-    id: 'artists',
-    title: 'Artists & Animators',
-    heading: 'Bring your art to life',
-    description: 'Give your artwork movement and personality. Create mesmerizing animations from still images in seconds, no animation skills required.',
-    icon: '🎨',
+    id: 'creators',
+    title: '内容创作者',
+    heading: '源源不断的创作灵感',
+    description: '告别创作瓶颈！AI帮您生成各种风格的图片，为您的社交媒体、博客、视频提供丰富的视觉内容。',
+    icon: '✨',
+  },
+  {
+    id: 'entrepreneurs',
+    title: '创业者',
+    heading: '零成本打造品牌形象',
+    description: '无需聘请设计师，就能为您的产品、网站、宣传材料生成专业的视觉素材。节省成本，提升效率。',
+    icon: '💼',
   },
 ]
 
@@ -42,7 +42,7 @@ export default function UseCases() {
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
             <span className="bg-gradient-to-r from-purple-400 to-pink-600 bg-clip-text text-transparent">
-              Why Top Creators Never Run Out Of Viral Content
+              适合各行各业的AI创作工具
             </span>
           </h2>
         </div>
