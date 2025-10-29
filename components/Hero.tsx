@@ -39,37 +39,50 @@ export default function Hero() {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
-      {/* Background Image Grid - 使用AI生成的真实案例图片 */}
-      <div className="absolute inset-0 grid grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-1 opacity-40">
-        {showcaseImages.map((img, i) => (
-          <div key={i} className="relative w-full aspect-square overflow-hidden">
-            {loadedImages.includes(img) ? (
-              <Image
-                src={img}
-                alt={`AI Generated Showcase ${i + 1}`}
-                fill
-                className="object-cover hover:scale-110 transition-transform duration-700"
-                style={{ 
-                  filter: 'brightness(0.7) contrast(1.2) saturate(1.1)',
-                  animation: `fadeIn 0.8s ease-in-out ${i * 0.15}s both`
-                }}
-                priority={i < 4}
-              />
-            ) : (
+      {/* Background Image Mosaic - 动态马赛克背景 */}
+      <div className="absolute inset-0 opacity-50">
+        {/* 使用flex布局创建流动的图片墙 */}
+        <div className="flex flex-wrap h-full">
+          {/* 重复图片以填满整个屏幕 */}
+          {Array.from({ length: 40 }).map((_, index) => {
+            const imgIndex = index % showcaseImages.length
+            const img = showcaseImages[imgIndex]
+            return (
               <div 
-                className="w-full h-full bg-gradient-to-br from-purple-600/30 to-pink-600/30 animate-pulse"
-                style={{ animationDelay: `${i * 0.3}s` }}
-              />
-            )}
-          </div>
-        ))}
+                key={`tile-${index}`} 
+                className="relative flex-shrink-0 overflow-hidden"
+                style={{
+                  width: 'calc(12.5%)', // 8列
+                  height: 'calc(20%)', // 5行
+                }}
+              >
+                {loadedImages.includes(img) ? (
+                  <Image
+                    src={img}
+                    alt={`Showcase ${index + 1}`}
+                    fill
+                    className="object-cover hover:scale-110 transition-transform duration-700"
+                    style={{ 
+                      filter: 'brightness(0.9) contrast(1.2) saturate(1.3)',
+                      animation: `fadeIn 0.5s ease-in-out ${index * 0.03}s both`
+                    }}
+                  />
+                ) : (
+                  <div className="w-full h-full bg-gradient-to-br from-purple-600/30 to-pink-600/30" />
+                )}
+              </div>
+            )
+          })}
+        </div>
       </div>
 
-      {/* Gradient Overlay - 减少遮罩强度，让图片更清晰 */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70" />
+      {/* 轻柔的渐变遮罩 - 确保文字可读但背景依然明亮 */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/50" />
       
-      {/* 添加细微的径向渐变，突出中心内容 */}
-      <div className="absolute inset-0 bg-radial-gradient from-transparent via-transparent to-black/30" />
+      {/* 中心光晕效果 */}
+      <div className="absolute inset-0" style={{
+        background: 'radial-gradient(ellipse at center, rgba(139, 92, 246, 0.1) 0%, transparent 50%, rgba(0,0,0,0.3) 100%)'
+      }} />
 
       {/* Content */}
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
