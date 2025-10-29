@@ -10,7 +10,13 @@ const nextConfig = {
       },
     ],
   },
+  webpack: (config) => {
+    config.module.rules.push({
+      test: /\.ico$/,
+      type: 'asset/resource',
+    });
+    return config;
+  },
 }
 
 module.exports = nextConfig
-

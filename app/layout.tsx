@@ -10,9 +10,13 @@ export const metadata: Metadata = {
   title: 'Wula.ai - Make Images Move | AI-Powered Image to Video',
   description: 'Transform your images into dynamic videos with AI. Professional results, zero experience needed.',
   keywords: 'AI video generation, image to video, AI effects, video creator',
-  icons: {
-    icon: '/favicon.svg',
-  },
+  icons: [
+    {
+      rel: 'icon',
+      type: 'image/svg+xml',
+      url: '/favicon.svg',
+    },
+  ],
 }
 
 export default function RootLayout({
