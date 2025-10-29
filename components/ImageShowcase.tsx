@@ -40,7 +40,7 @@ const imageCategories = {
     },
   ],
   anime: [
-    // 可爱萌系
+    // 仅使用 showcase 中实际存在的二次元角色图片
     {
       id: 'anime-1',
       url: '/showcase/5.jpg',
@@ -55,136 +55,6 @@ const imageCategories = {
       title: '梦幻魔法少女',
       prompt: 'Adorable magical girl, sparkles and stars, cute pose, soft colors, detailed anime illustration, kawaii aesthetic',
       likes: 7876,
-      category: 'anime'
-    },
-    {
-      id: 'anime-3',
-      url: '/gallery/abstract_31.jpg',
-      title: '粉色长发少女',
-      prompt: 'Pink hair anime girl, gentle smile, beautiful eyes, soft lighting, detailed character design, kawaii',
-      likes: 9543,
-      category: 'anime'
-    },
-    {
-      id: 'anime-4',
-      url: '/gallery/abstract_32.jpg',
-      title: '制服美少女',
-      prompt: 'School uniform anime girl, elegant pose, classic beauty, high quality illustration, detailed face',
-      likes: 8897,
-      category: 'anime'
-    },
-    {
-      id: 'anime-5',
-      url: '/gallery/abstract_33.jpg',
-      title: '银发精灵',
-      prompt: 'Silver hair anime elf girl, mystical atmosphere, detailed fantasy character, beautiful eyes',
-      likes: 10234,
-      category: 'anime'
-    },
-    {
-      id: 'anime-6',
-      url: '/gallery/abstract_34.jpg',
-      title: '甜美偶像',
-      prompt: 'Sweet idol anime girl, cute expression, stage outfit, vibrant colors, kawaii aesthetic',
-      likes: 9123,
-      category: 'anime'
-    },
-    {
-      id: 'anime-7',
-      url: '/gallery/abstract_35.jpg',
-      title: '优雅公主',
-      prompt: 'Elegant anime princess, royal dress, sophisticated design, beautiful illustration, detailed',
-      likes: 8678,
-      category: 'anime'
-    },
-    {
-      id: 'anime-8',
-      url: '/gallery/abstract_36.jpg',
-      title: '猫耳萌娘',
-      prompt: 'Cute anime cat girl with cat ears, neko maid, moe style, vibrant colors, detailed character design',
-      likes: 11543,
-      category: 'anime'
-    },
-    {
-      id: 'anime-9',
-      url: '/gallery/abstract_37.jpg',
-      title: '星空女神',
-      prompt: 'Anime goddess with star theme, cosmic background, ethereal beauty, detailed illustration',
-      likes: 9876,
-      category: 'anime'
-    },
-    {
-      id: 'anime-10',
-      url: '/gallery/abstract_38.jpg',
-      title: '机械少女',
-      prompt: 'Cyberpunk anime girl, mechanical parts, futuristic design, detailed sci-fi character',
-      likes: 10123,
-      category: 'anime'
-    },
-    {
-      id: 'anime-11',
-      url: '/gallery/abstract_39.jpg',
-      title: '樱花仙子',
-      prompt: 'Cherry blossom fairy anime girl, pink petals, magical atmosphere, soft colors, beautiful',
-      likes: 9234,
-      category: 'anime'
-    },
-    {
-      id: 'anime-12',
-      url: '/gallery/abstract_40.jpg',
-      title: '元气少女',
-      prompt: 'Energetic anime girl, cheerful expression, vibrant pose, colorful outfit, high energy',
-      likes: 8765,
-      category: 'anime'
-    },
-    // 帅气男性角色
-    {
-      id: 'anime-13',
-      url: '/gallery/urban_25.jpg',
-      title: '冷峻剑士',
-      prompt: 'Cool anime swordsman, serious expression, detailed armor, action pose, shounen style',
-      likes: 12345,
-      category: 'anime'
-    },
-    {
-      id: 'anime-14',
-      url: '/gallery/urban_26.jpg',
-      title: '神秘魔法师',
-      prompt: 'Mysterious anime wizard boy, magical staff, dark robe, dramatic lighting, fantasy style',
-      likes: 10987,
-      category: 'anime'
-    },
-    {
-      id: 'anime-15',
-      url: '/gallery/urban_27.jpg',
-      title: '热血主角',
-      prompt: 'Hot-blooded anime protagonist, determined eyes, spiky hair, action stance, shounen hero',
-      likes: 13456,
-      category: 'anime'
-    },
-    // 不同风格
-    {
-      id: 'anime-16',
-      url: '/gallery/urban_28.jpg',
-      title: '双马尾少女',
-      prompt: 'Twin tail anime girl, cute hairstyle, school uniform, cheerful smile, moe character',
-      likes: 9654,
-      category: 'anime'
-    },
-    {
-      id: 'anime-17',
-      url: '/gallery/urban_29.jpg',
-      title: '酷帅女骑士',
-      prompt: 'Cool female knight anime, silver armor, sword, strong pose, heroic character',
-      likes: 11234,
-      category: 'anime'
-    },
-    {
-      id: 'anime-18',
-      url: '/gallery/urban_30.jpg',
-      title: '温柔治愈系',
-      prompt: 'Gentle healing anime girl, soft smile, warm atmosphere, pastel colors, soothing character',
-      likes: 8901,
       category: 'anime'
     },
   ],
@@ -316,6 +186,54 @@ const additionalImages = [
     title: '城市倒影',
     prompt: 'City reflection in water, mirror effect, stunning visual',
     likes: 4321,
+    category: 'creative'
+  },
+  {
+    id: 'urban-5',
+    url: '/gallery/urban_25.jpg',
+    title: '东京街头',
+    prompt: 'Tokyo street crossing at night, neon signs, urban energy',
+    likes: 8234,
+    category: 'creative'
+  },
+  {
+    id: 'urban-6',
+    url: '/gallery/urban_26.jpg',
+    title: '威尼斯运河',
+    prompt: 'Venice canal with gondola, romantic Italian architecture, golden hour',
+    likes: 7123,
+    category: 'creative'
+  },
+  {
+    id: 'urban-7',
+    url: '/gallery/urban_27.jpg',
+    title: '街头涂鸦',
+    prompt: 'Graffiti street art on urban wall, vibrant colors, contemporary art',
+    likes: 6543,
+    category: 'creative'
+  },
+  {
+    id: 'urban-8',
+    url: '/gallery/urban_28.jpg',
+    title: '城市夜景',
+    prompt: 'Aerial view of city at night, illuminated streets, urban landscape from above',
+    likes: 7890,
+    category: 'creative'
+  },
+  {
+    id: 'urban-9',
+    url: '/gallery/urban_29.jpg',
+    title: '现代地铁站',
+    prompt: 'Modern subway station with futuristic design, clean lines, architectural photography',
+    likes: 5432,
+    category: 'creative'
+  },
+  {
+    id: 'urban-10',
+    url: '/gallery/urban_30.jpg',
+    title: '雨夜街景',
+    prompt: 'Rain-soaked city street at night, reflections on pavement, moody urban scene',
+    likes: 6789,
     category: 'creative'
   },
   // 抽象艺术

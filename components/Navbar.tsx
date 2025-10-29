@@ -14,9 +14,9 @@ export default function Navbar() {
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2">
             <div className="w-8 h-8 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-xl">W</span>
+              <span className="text-white font-bold text-xl">O</span>
             </div>
-            <span className="text-white text-xl font-bold">Wula.ai</span>
+            <span className="text-white text-xl font-bold">Ogemi</span>
           </Link>
 
           {/* Desktop Navigation */}

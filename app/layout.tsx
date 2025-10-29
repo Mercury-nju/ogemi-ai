@@ -7,9 +7,9 @@ import Footer from '@/components/Footer'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Wula.ai - Make Images Move | AI-Powered Image to Video',
-  description: 'Transform your images into dynamic videos with AI. Professional results, zero experience needed.',
-  keywords: 'AI video generation, image to video, AI effects, video creator',
+  title: 'Ogemi - AI Image Generation | Text to Image & AI Photo Editor',
+  description: 'Create stunning AI-generated images from text. Professional AI image editor with background removal, upscaling, and more.',
+  keywords: 'AI image generation, text to image, AI photo editor, background removal, image upscaling',
   icons: [
     {
       rel: 'icon',
