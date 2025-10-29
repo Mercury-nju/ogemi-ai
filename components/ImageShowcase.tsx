@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Image from 'next/image'
 
 // AI生成的图片案例数据 - 使用现有的 showcase 图片
@@ -334,46 +334,25 @@ export default function ImageShowcase() {
     : allImages.filter(img => img.category === selectedCategory)
 
   return (
-    <section className="min-h-screen pt-16 bg-black">
-      {/* Sticky Navigation Bar - Pixverse Style */}
-      <div className="sticky top-16 z-40 bg-black/95 backdrop-blur-sm border-b border-gray-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between py-4">
-            {/* Category Tabs */}
-            <div className="flex items-center gap-2 overflow-x-auto">
-              {categories.map((category) => (
-                <button
-                  key={category.id}
-                  onClick={() => handleCategoryChange(category.id)}
-                  className={`px-4 py-2 rounded-lg font-medium transition-all whitespace-nowrap ${
-                    selectedCategory === category.id
-                      ? 'bg-purple-600 text-white'
-                      : 'text-gray-400 hover:text-white hover:bg-gray-800'
-                  }`}
-                >
-                  {category.label}
-                </button>
-              ))}
-            </div>
-
-            {/* Right Side Actions */}
-            <div className="flex items-center gap-3">
-              <a
-                href="/text-to-image"
-                className="hidden sm:flex items-center gap-2 bg-gradient-to-r from-purple-600 to-pink-600 text-white px-4 py-2 rounded-lg font-semibold hover:shadow-lg hover:shadow-purple-500/50 transition-all"
-              >
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
-                </svg>
-                创作
-              </a>
-            </div>
-          </div>
+    <div className="min-h-screen bg-black pl-48">
+      {/* Top Navigation Tabs - Pixverse Style */}
+      <div className="sticky top-0 z-40 bg-black border-b border-gray-800">
+        <div className="flex items-center gap-6 px-6 py-3">
+          <button className="text-white font-medium border-b-2 border-purple-600 pb-3 -mb-px">
+            Video
+          </button>
+          <button className="text-gray-400 hover:text-white font-medium pb-3 relative">
+            Agent
+            <span className="absolute -top-1 -right-2 bg-purple-600 text-white text-[10px] px-1.5 py-0.5 rounded">New</span>
+          </button>
+          <button className="text-gray-400 hover:text-white font-medium pb-3">
+            Template
+          </button>
         </div>
       </div>
 
-      {/* Main Content */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      {/* Main Content Area */}
+      <div className="relative px-4 py-6">
         {/* Loading Indicator */}
         {isLoading && (
           <div className="flex justify-center items-center py-12">
@@ -382,58 +361,73 @@ export default function ImageShowcase() {
         )}
 
         {/* Masonry Grid - Pixverse Style */}
-        <div className={`columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-4 space-y-4 transition-opacity duration-300 ${isLoading ? 'opacity-50' : 'opacity-100'}`}>
+        <div className={`columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-3 transition-opacity duration-300 pb-24 ${isLoading ? 'opacity-50' : 'opacity-100'}`}>
           {filteredImages.map((image, index) => (
             <div
               key={image.id}
-              className="group relative bg-gray-900 rounded-xl overflow-hidden border border-gray-800 hover:border-purple-500/50 transition-all cursor-pointer break-inside-avoid mb-4"
+              className="group relative rounded-lg overflow-hidden cursor-pointer break-inside-avoid mb-3 hover:opacity-90 transition-opacity"
               onClick={() => setSelectedImage(image)}
             >
               {/* Image - Variable aspect ratio for masonry effect */}
-              <div className={`bg-gradient-to-br from-purple-900/30 to-pink-900/30 relative overflow-hidden ${
-                index % 5 === 0 ? 'aspect-[4/5]' :
-                index % 5 === 1 ? 'aspect-[3/4]' :
+              <div className={`bg-gradient-to-br from-gray-900 to-gray-800 relative overflow-hidden ${
+                index % 5 === 0 ? 'aspect-[3/4]' :
+                index % 5 === 1 ? 'aspect-[4/5]' :
                 index % 5 === 2 ? 'aspect-[9/16]' :
-                index % 5 === 3 ? 'aspect-square' :
-                'aspect-[2/3]'
+                index % 5 === 3 ? 'aspect-[2/3]' :
+                'aspect-square'
               }`}>
                 <Image
                   src={image.url}
                   alt={image.title}
                   fill
-                  className="object-cover group-hover:scale-110 transition-transform duration-500"
+                  className="object-cover"
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 25vw"
                 />
-                {/* Overlay on hover */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-              </div>
-
-              {/* Hover Overlay with Info */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-4 flex flex-col justify-end">
-                <h3 className="text-white font-semibold mb-1 line-clamp-2">{image.title}</h3>
-                <p className="text-gray-300 text-xs mb-2 line-clamp-2">{image.prompt}</p>
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center text-pink-400">
-                    <svg className="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clipRule="evenodd" />
+                
+                {/* Title Label - Always visible like Pixverse */}
+                <div className="absolute top-2 left-2">
+                  <div className="flex items-center gap-1 bg-purple-600/90 backdrop-blur-sm px-2 py-1 rounded">
+                    <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"/>
                     </svg>
-                    <span className="text-xs font-medium">{image.likes.toLocaleString()}</span>
+                    <span className="text-white text-xs font-medium">{image.title}</span>
                   </div>
                 </div>
-              </div>
 
-              {/* Category Badge */}
-              <div className="absolute top-2 right-2">
-                <span className={`px-3 py-1 rounded-full text-xs font-semibold backdrop-blur-sm ${
-                  image.category === 'realistic' ? 'bg-blue-500/80 text-white' :
-                  image.category === 'anime' ? 'bg-pink-500/80 text-white' :
-                  image.category === 'sexy' ? 'bg-red-500/80 text-white' :
-                  'bg-purple-500/80 text-white'
-                }`}>
-                  {image.category === 'realistic' ? '真实' :
-                   image.category === 'anime' ? '二次元' :
-                   image.category === 'sexy' ? '性感' : '创意'}
-                </span>
+                {/* Hover Actions - Top Right */}
+                <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity flex gap-1">
+                  <button className="p-1.5 bg-black/60 hover:bg-black/80 rounded backdrop-blur-sm transition-colors">
+                    <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
+                    </svg>
+                  </button>
+                </div>
+
+                {/* Hover Overlay - Bottom Info */}
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black via-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-3">
+                  <div className="flex items-center justify-between text-white">
+                    <div className="flex items-center gap-3 text-xs">
+                      <button className="flex items-center gap-1 hover:text-purple-400 transition-colors">
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5" />
+                        </svg>
+                        <span>{(image.likes / 1000).toFixed(1)}k</span>
+                      </button>
+                      <button className="flex items-center gap-1 hover:text-purple-400 transition-colors">
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                        </svg>
+                        <span>{(image.likes * 1.5 / 1000).toFixed(1)}k</span>
+                      </button>
+                    </div>
+                    <button className="p-1 hover:bg-white/20 rounded transition-colors">
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z" />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
               </div>
             </div>
           ))}
@@ -524,8 +518,28 @@ export default function ImageShowcase() {
           </div>
         )}
 
+        {/* Bottom Input Box - Pixverse Style */}
+        <div className="fixed bottom-0 left-48 right-0 bg-black border-t border-gray-800 p-4 z-30">
+          <div className="max-w-4xl mx-auto">
+            <div className="flex items-center gap-3 bg-gray-900 rounded-lg border border-gray-700 p-2">
+              <button className="p-2 text-gray-400 hover:text-white transition-colors">
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+              </button>
+              <input
+                type="text"
+                placeholder="Describe the content you want to create"
+                className="flex-1 bg-transparent text-white placeholder-gray-500 outline-none text-sm"
+              />
+              <button className="bg-purple-600 hover:bg-purple-700 text-white px-6 py-2 rounded-lg font-medium transition-colors">
+                Generate
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
-    </section>
+    </div>
   )
 }
 
