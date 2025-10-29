@@ -56,6 +56,46 @@ const imageCategories = {
       likes: 4876,
       category: 'anime'
     },
+    {
+      id: 'anime-3',
+      url: '/gallery/portrait_6.jpg',
+      title: '粉色长发少女',
+      prompt: 'Pink hair anime girl, gentle smile, beautiful eyes, soft lighting, detailed character design',
+      likes: 6543,
+      category: 'anime'
+    },
+    {
+      id: 'anime-4',
+      url: '/gallery/portrait_7.jpg',
+      title: '制服美少女',
+      prompt: 'School uniform anime girl, elegant pose, classic beauty, high quality illustration',
+      likes: 5897,
+      category: 'anime'
+    },
+    {
+      id: 'anime-5',
+      url: '/gallery/portrait_8.jpg',
+      title: '银发精灵',
+      prompt: 'Silver hair anime elf girl, mystical atmosphere, detailed fantasy character',
+      likes: 7234,
+      category: 'anime'
+    },
+    {
+      id: 'anime-6',
+      url: '/gallery/portrait_9.jpg',
+      title: '甜美偶像',
+      prompt: 'Sweet idol anime girl, cute expression, stage outfit, vibrant colors',
+      likes: 6123,
+      category: 'anime'
+    },
+    {
+      id: 'anime-7',
+      url: '/gallery/portrait_10.jpg',
+      title: '优雅公主',
+      prompt: 'Elegant anime princess, royal dress, sophisticated design, beautiful illustration',
+      likes: 5678,
+      category: 'anime'
+    },
   ],
   sexy: [
     {
@@ -64,6 +104,38 @@ const imageCategories = {
       title: '性感女王',
       prompt: 'Seductive anime queen, revealing dark fantasy outfit, powerful presence, detailed illustration',
       likes: 9123,
+      category: 'sexy'
+    },
+    {
+      id: 'sexy-2',
+      url: '/gallery/lifestyle_45.jpg',
+      title: '妖艳舞者',
+      prompt: 'Alluring anime dancer, elegant movement, beautiful costume, artistic character design',
+      likes: 8456,
+      category: 'sexy'
+    },
+    {
+      id: 'sexy-3',
+      url: '/gallery/lifestyle_46.jpg',
+      title: '魅惑女神',
+      prompt: 'Charming anime goddess, beautiful figure, ethereal lighting, detailed illustration',
+      likes: 8901,
+      category: 'sexy'
+    },
+    {
+      id: 'sexy-4',
+      url: '/gallery/lifestyle_47.jpg',
+      title: '性感御姐',
+      prompt: 'Sexy mature anime woman, confident pose, sophisticated style, high quality art',
+      likes: 7834,
+      category: 'sexy'
+    },
+    {
+      id: 'sexy-5',
+      url: '/gallery/lifestyle_48.jpg',
+      title: '火辣战士',
+      prompt: 'Hot anime warrior girl, battle outfit, dynamic pose, detailed character art',
+      likes: 8234,
       category: 'sexy'
     },
   ],
@@ -221,45 +293,85 @@ const additionalImages = [
     likes: 4234,
     category: 'realistic'
   },
-  // 人像
+  // 亚洲美女人像
   {
-    id: 'portrait-1',
+    id: 'asian-beauty-1',
     url: '/gallery/portrait_1.jpg',
-    title: '优雅肖像',
-    prompt: 'Elegant portrait, professional photography, stunning beauty',
+    title: '优雅东方佳人',
+    prompt: 'Elegant Asian woman portrait, professional photography, natural beauty, 8K ultra HD',
     likes: 6789,
     category: 'realistic'
   },
   {
-    id: 'portrait-2',
+    id: 'asian-beauty-2',
     url: '/gallery/portrait_2.jpg',
-    title: '时尚写真',
-    prompt: 'Fashion portrait, modern style, high-end photography',
-    likes: 5432,
+    title: '时尚亚洲模特',
+    prompt: 'Fashion Asian model, modern style, high-end photography, stunning makeup',
+    likes: 7432,
     category: 'realistic'
   },
   {
-    id: 'portrait-3',
+    id: 'asian-beauty-3',
     url: '/gallery/portrait_3.jpg',
-    title: '自然美',
-    prompt: 'Natural beauty portrait, soft lighting, authentic expression',
-    likes: 4567,
+    title: '清纯校园女神',
+    prompt: 'Pure Asian schoolgirl beauty, soft lighting, authentic expression, youthful charm',
+    likes: 8567,
     category: 'realistic'
   },
   {
-    id: 'portrait-4',
+    id: 'asian-beauty-4',
     url: '/gallery/portrait_4.jpg',
-    title: '都市风情',
-    prompt: 'Urban style portrait, city background, modern aesthetic',
-    likes: 5123,
+    title: '都市气质美女',
+    prompt: 'Urban Asian beauty, city background, modern aesthetic, confident pose',
+    likes: 7123,
     category: 'realistic'
   },
   {
-    id: 'portrait-5',
+    id: 'asian-beauty-5',
     url: '/gallery/portrait_5.jpg',
-    title: '经典美人',
-    prompt: 'Classic beauty portrait, timeless elegance, studio lighting',
-    likes: 6234,
+    title: '经典东方美人',
+    prompt: 'Classic Asian beauty, timeless elegance, studio lighting, refined features',
+    likes: 8234,
+    category: 'realistic'
+  },
+  {
+    id: 'asian-beauty-6',
+    url: '/gallery/lifestyle_49.jpg',
+    title: '甜美邻家女孩',
+    prompt: 'Sweet Asian girl next door, natural smile, casual fashion, warm atmosphere',
+    likes: 6890,
+    category: 'realistic'
+  },
+  {
+    id: 'asian-beauty-7',
+    url: '/gallery/lifestyle_50.jpg',
+    title: '职业白领丽人',
+    prompt: 'Professional Asian businesswoman, office style, sophisticated beauty, sharp focus',
+    likes: 5987,
+    category: 'realistic'
+  },
+  {
+    id: 'asian-beauty-8',
+    url: '/gallery/landscape_16.jpg',
+    title: '浪漫海滨美女',
+    prompt: 'Romantic Asian woman at beach, sunset lighting, dreamy atmosphere, natural beauty',
+    likes: 7654,
+    category: 'realistic'
+  },
+  {
+    id: 'asian-beauty-9',
+    url: '/gallery/landscape_17.jpg',
+    title: '古典旗袍佳人',
+    prompt: 'Asian woman in traditional qipao, elegant pose, cultural beauty, detailed photography',
+    likes: 8901,
+    category: 'realistic'
+  },
+  {
+    id: 'asian-beauty-10',
+    url: '/gallery/landscape_18.jpg',
+    title: '运动活力女孩',
+    prompt: 'Athletic Asian girl, fitness style, energetic pose, healthy beauty, dynamic shot',
+    likes: 6543,
     category: 'realistic'
   },
 ]
@@ -306,15 +418,14 @@ export default function ImageShowcase() {
       <div className="sticky top-0 z-40 bg-black border-b border-gray-800">
         <div className="flex items-center gap-6 px-6 py-3">
           <button className="text-white font-medium border-b-2 border-purple-600 pb-3 -mb-px">
-            Video
+            Gallery
           </button>
-          <button className="text-gray-400 hover:text-white font-medium pb-3 relative">
-            Agent
-            <span className="absolute -top-1 -right-2 bg-purple-600 text-white text-[10px] px-1.5 py-0.5 rounded">New</span>
-          </button>
-          <button className="text-gray-400 hover:text-white font-medium pb-3">
-            Template
-          </button>
+          <a href="/text-to-image" className="text-gray-400 hover:text-white font-medium pb-3">
+            Text to Image
+          </a>
+          <a href="/image-editor" className="text-gray-400 hover:text-white font-medium pb-3">
+            Image Editor
+          </a>
         </div>
       </div>
 
