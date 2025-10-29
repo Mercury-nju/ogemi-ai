@@ -7,15 +7,15 @@ export default function Sidebar() {
   const pathname = usePathname()
 
   const menuItems = [
-    { icon: 'home', label: 'Home', href: '/', active: true },
-    { icon: 'image', label: 'Text to Image', href: '/text-to-image', badge: null },
-    { icon: 'edit', label: 'Image Editor', href: '/image-editor', badge: null },
-    { icon: 'template', label: 'Gallery', href: '/gallery', badge: null },
+    { icon: 'home', label: 'Home', href: '/', active: true, badge: null },
+    { icon: 'image', label: 'Text to Image', href: '/text-to-image', active: false, badge: null },
+    { icon: 'edit', label: 'Image Editor', href: '/image-editor', active: false, badge: null },
+    { icon: 'template', label: 'Gallery', href: '/gallery', active: false, badge: null },
   ]
 
   const mineItems = [
-    { icon: 'saved', label: 'My Creations', href: '/dashboard' },
-    { icon: 'subscribe', label: 'Pricing', href: '/pricing' },
+    { icon: 'saved', label: 'My Creations', href: '/dashboard', active: false },
+    { icon: 'subscribe', label: 'Pricing', href: '/pricing', active: false },
   ]
 
   return (
@@ -81,7 +81,11 @@ export default function Sidebar() {
             <Link
               key={item.href}
               href={item.href}
-              className="flex items-center gap-3 px-3 py-2.5 rounded-lg mb-1 text-gray-400 hover:bg-gray-800/50 hover:text-white transition-colors"
+              className={`flex items-center gap-3 px-3 py-2.5 rounded-lg mb-1 transition-colors ${
+                item.active
+                  ? 'bg-gray-800 text-white'
+                  : 'text-gray-400 hover:bg-gray-800/50 hover:text-white'
+              }`}
             >
               {item.icon === 'saved' && (
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
