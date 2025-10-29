@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react'
 import Image from 'next/image'
 
-// AI生成的图片案例数据 - 使用现有的 showcase 图片
+// AI生成的图片案例数据 - 每个都使用不同的图片
 const imageCategories = {
   realistic: [
     {
@@ -38,43 +38,11 @@ const imageCategories = {
       likes: 2154,
       category: 'realistic'
     },
-    {
-      id: 'realistic-5',
-      url: '/showcase/5.jpg',
-      title: '运动活力女孩',
-      prompt: 'Athletic beautiful woman, fitness style, energetic pose, natural beauty, 8K quality, professional photo',
-      likes: 3198,
-      category: 'realistic'
-    },
-    {
-      id: 'realistic-6',
-      url: '/showcase/6.jpg',
-      title: '商务精英女性',
-      prompt: 'Professional business woman, confident pose, modern office style, sharp focus, detailed, corporate portrait',
-      likes: 2634,
-      category: 'realistic'
-    },
-    {
-      id: 'realistic-7',
-      url: '/showcase/7.jpg',
-      title: '甜美校园女孩',
-      prompt: 'Sweet campus girl, youthful beauty, casual fashion, natural smile, photorealistic, soft lighting',
-      likes: 3567,
-      category: 'realistic'
-    },
-    {
-      id: 'realistic-8',
-      url: '/showcase/8.jpg',
-      title: '梦幻婚纱美女',
-      prompt: 'Bride in dreamy wedding dress, romantic atmosphere, soft focus, elegant pose, professional bridal photography',
-      likes: 4123,
-      category: 'realistic'
-    },
   ],
   anime: [
     {
       id: 'anime-1',
-      url: '/showcase/1.jpg',
+      url: '/showcase/5.jpg',
       title: '可爱学园少女',
       prompt: 'Cute anime schoolgirl, kawaii style, big expressive eyes, school uniform, pastel colors, high quality anime art',
       likes: 5234,
@@ -82,123 +50,19 @@ const imageCategories = {
     },
     {
       id: 'anime-2',
-      url: '/showcase/2.jpg',
+      url: '/showcase/6.jpg',
       title: '梦幻魔法少女',
       prompt: 'Adorable magical girl, sparkles and stars, cute pose, soft colors, detailed anime illustration, kawaii aesthetic',
       likes: 4876,
-      category: 'anime'
-    },
-    {
-      id: 'anime-3',
-      url: '/showcase/3.jpg',
-      title: '猫耳萌娘',
-      prompt: 'Cute anime girl with cat ears, neko maid, moe style, vibrant colors, detailed character design, kawaii',
-      likes: 6123,
-      category: 'anime'
-    },
-    {
-      id: 'anime-4',
-      url: '/showcase/4.jpg',
-      title: '天真烂漫少女',
-      prompt: 'Innocent anime girl, cheerful expression, soft lighting, beautiful anime art, cute smile, pastel palette',
-      likes: 4321,
-      category: 'anime'
-    },
-    {
-      id: 'anime-5',
-      url: '/showcase/5.jpg',
-      title: '治愈系天使',
-      prompt: 'Healing anime angel girl, gentle smile, warm atmosphere, high quality illustration, soft wings, ethereal',
-      likes: 5678,
-      category: 'anime'
-    },
-    {
-      id: 'anime-6',
-      url: '/showcase/6.jpg',
-      title: '元气偶像少女',
-      prompt: 'Energetic idol anime girl, stage costume, cute pose, vibrant colors, detailed anime style, kawaii idol',
-      likes: 5432,
-      category: 'anime'
-    },
-    {
-      id: 'anime-7',
-      url: '/showcase/7.jpg',
-      title: '樱花仙子',
-      prompt: 'Cherry blossom fairy anime girl, pink petals, magical atmosphere, soft colors, beautiful illustration',
-      likes: 4987,
-      category: 'anime'
-    },
-    {
-      id: 'anime-8',
-      url: '/showcase/8.jpg',
-      title: '甜心公主',
-      prompt: 'Sweet princess anime girl, elegant dress, tiara, dreamy background, high quality anime art, royal kawaii',
-      likes: 6234,
       category: 'anime'
     },
   ],
   sexy: [
     {
       id: 'sexy-1',
-      url: '/showcase/1.jpg',
-      title: '性感御姐',
-      prompt: 'Attractive mature anime woman, elegant pose, detailed body proportions, sophisticated style, high quality art',
-      likes: 7234,
-      category: 'sexy'
-    },
-    {
-      id: 'sexy-2',
-      url: '/showcase/2.jpg',
-      title: '火辣女战士',
-      prompt: 'Sexy anime warrior girl, dynamic fighting pose, battle bikini armor, detailed character art, powerful beauty',
-      likes: 6876,
-      category: 'sexy'
-    },
-    {
-      id: 'sexy-3',
-      url: '/showcase/3.jpg',
-      title: '魅惑女神',
-      prompt: 'Alluring anime goddess, beautiful curvy figure, flowing hair, ethereal lighting, detailed illustration',
-      likes: 8123,
-      category: 'sexy'
-    },
-    {
-      id: 'sexy-4',
-      url: '/showcase/4.jpg',
-      title: '泳装美人',
-      prompt: 'Sexy anime girl in bikini, beach scene, summer vibes, detailed illustration, beautiful body proportions',
-      likes: 8765,
-      category: 'sexy'
-    },
-    {
-      id: 'sexy-5',
-      url: '/showcase/5.jpg',
-      title: '性感秘书OL',
-      prompt: 'Sexy anime office lady, tight business suit, professional yet attractive, detailed character design',
-      likes: 7543,
-      category: 'sexy'
-    },
-    {
-      id: 'sexy-6',
-      url: '/showcase/6.jpg',
-      title: '妖艳舞娘',
-      prompt: 'Seductive anime belly dancer, elegant movement, revealing costume, artistic style, beautiful curves',
-      likes: 7891,
-      category: 'sexy'
-    },
-    {
-      id: 'sexy-7',
       url: '/showcase/7.jpg',
-      title: '性感女仆',
-      prompt: 'Sexy anime maid, revealing maid outfit, alluring pose, detailed character art, attractive proportions',
-      likes: 8432,
-      category: 'sexy'
-    },
-    {
-      id: 'sexy-8',
-      url: '/showcase/8.jpg',
-      title: '魔性女王',
-      prompt: 'Seductive demon queen anime, revealing dark fantasy outfit, powerful presence, detailed illustration',
+      title: '性感女王',
+      prompt: 'Seductive anime queen, revealing dark fantasy outfit, powerful presence, detailed illustration',
       likes: 9123,
       category: 'sexy'
     },
@@ -206,108 +70,206 @@ const imageCategories = {
   creative: [
     {
       id: 'creative-1',
-      url: '/showcase/1.jpg',
-      title: '未来赛博城市',
-      prompt: 'Futuristic cyberpunk city at night, neon lights everywhere, flying cars, rain-soaked streets, highly detailed sci-fi scene',
-      likes: 4876,
-      category: 'creative'
-    },
-    {
-      id: 'creative-2',
-      url: '/showcase/2.jpg',
-      title: '奇幻魔法森林',
-      prompt: 'Magical fantasy forest, glowing mushrooms, fireflies, ethereal atmosphere, detailed environment art',
-      likes: 5234,
-      category: 'creative'
-    },
-    {
-      id: 'creative-3',
-      url: '/showcase/3.jpg',
-      title: '蒸汽朋克机械龙',
-      prompt: 'Massive mechanical dragon, steampunk style, brass and copper, intricate gears, epic composition',
-      likes: 6321,
-      category: 'creative'
-    },
-    {
-      id: 'creative-4',
-      url: '/showcase/4.jpg',
-      title: '云端水晶宫殿',
-      prompt: 'Crystal palace floating in the clouds, magnificent architecture, dreamy lighting, fantasy art, ethereal',
-      likes: 4987,
-      category: 'creative'
-    },
-    {
-      id: 'creative-5',
-      url: '/showcase/5.jpg',
-      title: '巨型太空站',
-      prompt: 'Massive space station orbiting Earth, sci-fi concept art, detailed design, stars and nebula background',
-      likes: 5432,
-      category: 'creative'
-    },
-    {
-      id: 'creative-6',
-      url: '/showcase/6.jpg',
-      title: '神秘海底世界',
-      prompt: 'Underwater fantasy world, bioluminescent creatures, ancient ruins, mystical atmosphere, deep sea',
-      likes: 5123,
-      category: 'creative'
-    },
-    {
-      id: 'creative-7',
-      url: '/showcase/7.jpg',
-      title: '龙骑士决斗',
-      prompt: 'Epic dragon and knight battle scene, dramatic lighting, detailed illustration, fantasy warfare',
-      likes: 6789,
-      category: 'creative'
-    },
-    {
-      id: 'creative-8',
       url: '/showcase/8.jpg',
       title: '时空穿越者',
       prompt: 'Time traveler in multiple dimensions, surreal concept art, mind-bending visuals, portal effects',
       likes: 4765,
       category: 'creative'
     },
-    {
-      id: 'creative-9',
-      url: '/showcase/1.jpg',
-      title: '异次元空间',
-      prompt: 'Interdimensional space, abstract geometry, cosmic colors, surreal atmosphere, mind-blowing visuals',
-      likes: 5678,
-      category: 'creative'
-    },
-    {
-      id: 'creative-10',
-      url: '/showcase/2.jpg',
-      title: '巨型机甲战士',
-      prompt: 'Giant mecha robot warrior, detailed mechanical design, action pose, sci-fi military style',
-      likes: 6432,
-      category: 'creative'
-    },
-    {
-      id: 'creative-11',
-      url: '/showcase/3.jpg',
-      title: '魔法学院',
-      prompt: 'Magical wizard academy, floating islands, mystical towers, fantasy architecture, enchanted atmosphere',
-      likes: 5234,
-      category: 'creative'
-    },
-    {
-      id: 'creative-12',
-      url: '/showcase/4.jpg',
-      title: '赛博朋克武士',
-      prompt: 'Cyberpunk samurai with neon katana, futuristic armor, rain and neon lights, detailed character art',
-      likes: 7123,
-      category: 'creative'
-    },
   ]
 }
+
+// 添加更多作品以充分利用所有图片
+const additionalImages = [
+  // 森林小径
+  {
+    id: 'nature-1',
+    url: '/gallery/landscape_11.jpg',
+    title: '梦幻森林小径',
+    prompt: 'Magical forest path with sunlight rays, mystical atmosphere, detailed nature scene',
+    likes: 3421,
+    category: 'creative'
+  },
+  {
+    id: 'nature-2',
+    url: '/gallery/landscape_12.jpg',
+    title: '神秘森林',
+    prompt: 'Enchanted forest with fog, mysterious lighting, fantasy landscape',
+    likes: 2987,
+    category: 'creative'
+  },
+  {
+    id: 'nature-3',
+    url: '/gallery/landscape_13.jpg',
+    title: '山间风光',
+    prompt: 'Mountain landscape at sunset, dramatic clouds, cinematic view',
+    likes: 4123,
+    category: 'creative'
+  },
+  {
+    id: 'nature-4',
+    url: '/gallery/landscape_14.jpg',
+    title: '海滨日落',
+    prompt: 'Beach sunset with couple silhouette, romantic atmosphere, golden hour',
+    likes: 5234,
+    category: 'realistic'
+  },
+  {
+    id: 'nature-5',
+    url: '/gallery/landscape_15.jpg',
+    title: '壮丽山河',
+    prompt: 'Epic mountain range, majestic landscape, nature photography',
+    likes: 3876,
+    category: 'creative'
+  },
+  // 城市风光
+  {
+    id: 'urban-1',
+    url: '/gallery/urban_21.jpg',
+    title: '未来都市',
+    prompt: 'Futuristic cityscape at night, neon lights, cyberpunk aesthetic',
+    likes: 6543,
+    category: 'creative'
+  },
+  {
+    id: 'urban-2',
+    url: '/gallery/urban_22.jpg',
+    title: '赛博街道',
+    prompt: 'Cyberpunk street with reflections, rain-soaked pavement, neon signs',
+    likes: 7234,
+    category: 'creative'
+  },
+  {
+    id: 'urban-3',
+    url: '/gallery/urban_23.jpg',
+    title: '霓虹之夜',
+    prompt: 'Neon city night, vibrant colors, urban landscape',
+    likes: 5678,
+    category: 'creative'
+  },
+  {
+    id: 'urban-4',
+    url: '/gallery/urban_24.jpg',
+    title: '城市倒影',
+    prompt: 'City reflection in water, mirror effect, stunning visual',
+    likes: 4321,
+    category: 'creative'
+  },
+  // 抽象艺术
+  {
+    id: 'abstract-1',
+    url: '/gallery/abstract_31.jpg',
+    title: '抽象几何',
+    prompt: 'Abstract geometric patterns, colorful design, modern art',
+    likes: 3456,
+    category: 'creative'
+  },
+  {
+    id: 'abstract-2',
+    url: '/gallery/abstract_32.jpg',
+    title: '流体艺术',
+    prompt: 'Fluid art with vibrant colors, abstract composition',
+    likes: 4123,
+    category: 'creative'
+  },
+  {
+    id: 'abstract-3',
+    url: '/gallery/abstract_33.jpg',
+    title: '色彩爆发',
+    prompt: 'Color explosion, dynamic abstract art, energetic visual',
+    likes: 3789,
+    category: 'creative'
+  },
+  {
+    id: 'abstract-4',
+    url: '/gallery/abstract_34.jpg',
+    title: '几何幻想',
+    prompt: 'Geometric fantasy, surreal patterns, artistic design',
+    likes: 2987,
+    category: 'creative'
+  },
+  // 生活方式
+  {
+    id: 'lifestyle-1',
+    url: '/gallery/lifestyle_41.jpg',
+    title: '浪漫时刻',
+    prompt: 'Romantic couple moment, beautiful lighting, emotional scene',
+    likes: 5432,
+    category: 'realistic'
+  },
+  {
+    id: 'lifestyle-2',
+    url: '/gallery/lifestyle_42.jpg',
+    title: '日常美好',
+    prompt: 'Beautiful daily life moment, warm atmosphere, lifestyle photography',
+    likes: 4567,
+    category: 'realistic'
+  },
+  {
+    id: 'lifestyle-3',
+    url: '/gallery/lifestyle_43.jpg',
+    title: '温馨场景',
+    prompt: 'Cozy lifestyle scene, warm lighting, comfortable atmosphere',
+    likes: 3890,
+    category: 'realistic'
+  },
+  {
+    id: 'lifestyle-4',
+    url: '/gallery/lifestyle_44.jpg',
+    title: '活力瞬间',
+    prompt: 'Energetic lifestyle moment, dynamic composition, vibrant scene',
+    likes: 4234,
+    category: 'realistic'
+  },
+  // 人像
+  {
+    id: 'portrait-1',
+    url: '/gallery/portrait_1.jpg',
+    title: '优雅肖像',
+    prompt: 'Elegant portrait, professional photography, stunning beauty',
+    likes: 6789,
+    category: 'realistic'
+  },
+  {
+    id: 'portrait-2',
+    url: '/gallery/portrait_2.jpg',
+    title: '时尚写真',
+    prompt: 'Fashion portrait, modern style, high-end photography',
+    likes: 5432,
+    category: 'realistic'
+  },
+  {
+    id: 'portrait-3',
+    url: '/gallery/portrait_3.jpg',
+    title: '自然美',
+    prompt: 'Natural beauty portrait, soft lighting, authentic expression',
+    likes: 4567,
+    category: 'realistic'
+  },
+  {
+    id: 'portrait-4',
+    url: '/gallery/portrait_4.jpg',
+    title: '都市风情',
+    prompt: 'Urban style portrait, city background, modern aesthetic',
+    likes: 5123,
+    category: 'realistic'
+  },
+  {
+    id: 'portrait-5',
+    url: '/gallery/portrait_5.jpg',
+    title: '经典美人',
+    prompt: 'Classic beauty portrait, timeless elegance, studio lighting',
+    likes: 6234,
+    category: 'realistic'
+  },
+]
 
 const allImages = [
   ...imageCategories.realistic,
   ...imageCategories.anime,
   ...imageCategories.sexy,
   ...imageCategories.creative,
+  ...additionalImages,
 ]
 
 export default function ImageShowcase() {
@@ -321,12 +283,17 @@ export default function ImageShowcase() {
     setTimeout(() => setIsLoading(false), 300)
   }
 
+  const realisticCount = allImages.filter(img => img.category === 'realistic').length
+  const animeCount = allImages.filter(img => img.category === 'anime').length
+  const sexyCount = allImages.filter(img => img.category === 'sexy').length
+  const creativeCount = allImages.filter(img => img.category === 'creative').length
+
   const categories = [
     { id: 'all', label: '全部作品', count: allImages.length },
-    { id: 'realistic', label: '真实肖像', count: imageCategories.realistic.length },
-    { id: 'anime', label: '可爱二次元', count: imageCategories.anime.length },
-    { id: 'sexy', label: '性感角色', count: imageCategories.sexy.length },
-    { id: 'creative', label: '创意作品', count: imageCategories.creative.length },
+    { id: 'realistic', label: '真实肖像', count: realisticCount },
+    { id: 'anime', label: '可爱二次元', count: animeCount },
+    { id: 'sexy', label: '性感角色', count: sexyCount },
+    { id: 'creative', label: '创意作品', count: creativeCount },
   ]
 
   const filteredImages = selectedCategory === 'all' 
