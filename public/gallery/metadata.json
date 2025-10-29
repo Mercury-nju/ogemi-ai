@@ -278,5 +278,75 @@
     "category": "abstract",
     "prompt": "Glowing particles forming abstract shape, light painting, long exposure effect",
     "path": "/gallery/abstract_40.jpg"
+  },
+  {
+    "id": 41,
+    "filename": "lifestyle_41.jpg",
+    "category": "lifestyle",
+    "prompt": "Minimalist home interior with natural light, scandinavian design, cozy living room",
+    "path": "/gallery/lifestyle_41.jpg"
+  },
+  {
+    "id": 42,
+    "filename": "lifestyle_42.jpg",
+    "category": "lifestyle",
+    "prompt": "Delicious gourmet meal plated beautifully, food photography, restaurant quality",
+    "path": "/gallery/lifestyle_42.jpg"
+  },
+  {
+    "id": 43,
+    "filename": "lifestyle_43.jpg",
+    "category": "lifestyle",
+    "prompt": "Yoga pose at sunrise on mountain top, wellness and fitness, peaceful meditation",
+    "path": "/gallery/lifestyle_43.jpg"
+  },
+  {
+    "id": 44,
+    "filename": "lifestyle_44.jpg",
+    "category": "lifestyle",
+    "prompt": "Fresh coffee and pastry on wooden table, morning routine, cozy café atmosphere",
+    "path": "/gallery/lifestyle_44.jpg"
+  },
+  {
+    "id": 45,
+    "filename": "lifestyle_45.jpg",
+    "category": "lifestyle",
+    "prompt": "Modern workspace with laptop and plants, home office, productivity setup",
+    "path": "/gallery/lifestyle_45.jpg"
+  },
+  {
+    "id": 46,
+    "filename": "lifestyle_46.jpg",
+    "category": "lifestyle",
+    "prompt": "Spa treatment setup with candles and stones, relaxation and wellness theme",
+    "path": "/gallery/lifestyle_46.jpg"
+  },
+  {
+    "id": 47,
+    "filename": "lifestyle_47.jpg",
+    "category": "lifestyle",
+    "prompt": "Fashion accessories flatlay, designer items, luxury lifestyle photography",
+    "path": "/gallery/lifestyle_47.jpg"
+  },
+  {
+    "id": 48,
+    "filename": "lifestyle_48.jpg",
+    "category": "lifestyle",
+    "prompt": "Healthy breakfast bowl with fruits and granola, food styling, nutritious meal",
+    "path": "/gallery/lifestyle_48.jpg"
+  },
+  {
+    "id": 49,
+    "filename": "lifestyle_49.jpg",
+    "category": "lifestyle",
+    "prompt": "Cozy reading nook with books and blanket, hygge lifestyle, comfortable space",
+    "path": "/gallery/lifestyle_49.jpg"
+  },
+  {
+    "id": 50,
+    "filename": "lifestyle_50.jpg",
+    "category": "lifestyle",
+    "prompt": "Outdoor camping scene with tent and campfire, adventure lifestyle, nature escape",
+    "path": "/gallery/lifestyle_50.jpg"
   }
 ]

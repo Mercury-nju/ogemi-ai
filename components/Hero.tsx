@@ -40,7 +40,7 @@ export default function Hero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
       {/* Background Image Grid - 使用AI生成的真实案例图片 */}
-      <div className="absolute inset-0 grid grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-0 opacity-25">
+      <div className="absolute inset-0 grid grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-1 opacity-40">
         {showcaseImages.map((img, i) => (
           <div key={i} className="relative w-full aspect-square overflow-hidden">
             {loadedImages.includes(img) ? (
@@ -48,10 +48,10 @@ export default function Hero() {
                 src={img}
                 alt={`AI Generated Showcase ${i + 1}`}
                 fill
-                className="object-cover"
+                className="object-cover hover:scale-110 transition-transform duration-700"
                 style={{ 
-                  filter: 'brightness(0.8) contrast(1.1)',
-                  animation: `fadeIn 0.5s ease-in-out ${i * 0.1}s both`
+                  filter: 'brightness(0.7) contrast(1.2) saturate(1.1)',
+                  animation: `fadeIn 0.8s ease-in-out ${i * 0.15}s both`
                 }}
                 priority={i < 4}
               />
@@ -65,8 +65,11 @@ export default function Hero() {
         ))}
       </div>
 
-      {/* Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/75 via-black/50 to-black/75" />
+      {/* Gradient Overlay - 减少遮罩强度，让图片更清晰 */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70" />
+      
+      {/* 添加细微的径向渐变，突出中心内容 */}
+      <div className="absolute inset-0 bg-radial-gradient from-transparent via-transparent to-black/30" />
 
       {/* Content */}
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
