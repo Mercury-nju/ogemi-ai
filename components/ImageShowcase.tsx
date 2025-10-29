@@ -334,38 +334,46 @@ export default function ImageShowcase() {
     : allImages.filter(img => img.category === selectedCategory)
 
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-black">
-      <div className="max-w-7xl mx-auto">
-        {/* Header */}
-        <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            <span className="bg-gradient-to-r from-purple-400 via-pink-500 to-purple-600 bg-clip-text text-transparent">
-              精选 AI 作品展示
-            </span>
-          </h2>
-          <p className="text-gray-400 text-lg max-w-3xl mx-auto">
-            探索 AI 创作的无限可能 - 从真实肖像到二次元角色，从创意概念到梦幻场景
-          </p>
-        </div>
+    <section className="min-h-screen pt-16 bg-black">
+      {/* Sticky Navigation Bar - Pixverse Style */}
+      <div className="sticky top-16 z-40 bg-black/95 backdrop-blur-sm border-b border-gray-800">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between py-4">
+            {/* Category Tabs */}
+            <div className="flex items-center gap-2 overflow-x-auto">
+              {categories.map((category) => (
+                <button
+                  key={category.id}
+                  onClick={() => handleCategoryChange(category.id)}
+                  className={`px-4 py-2 rounded-lg font-medium transition-all whitespace-nowrap ${
+                    selectedCategory === category.id
+                      ? 'bg-purple-600 text-white'
+                      : 'text-gray-400 hover:text-white hover:bg-gray-800'
+                  }`}
+                >
+                  {category.label}
+                </button>
+              ))}
+            </div>
 
-        {/* Category Filters */}
-        <div className="flex flex-wrap justify-center gap-3 mb-12">
-          {categories.map((category) => (
-            <button
-              key={category.id}
-              onClick={() => handleCategoryChange(category.id)}
-              className={`px-6 py-3 rounded-full font-semibold transition-all transform hover:scale-105 ${
-                selectedCategory === category.id
-                  ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-lg shadow-purple-500/50 scale-105'
-                  : 'bg-gray-900 text-gray-400 hover:text-white hover:bg-gray-800 border border-gray-800'
-              }`}
-            >
-              {category.label}
-              <span className="ml-2 text-sm opacity-75">({category.count})</span>
-            </button>
-          ))}
+            {/* Right Side Actions */}
+            <div className="flex items-center gap-3">
+              <a
+                href="/text-to-image"
+                className="hidden sm:flex items-center gap-2 bg-gradient-to-r from-purple-600 to-pink-600 text-white px-4 py-2 rounded-lg font-semibold hover:shadow-lg hover:shadow-purple-500/50 transition-all"
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
+                </svg>
+                创作
+              </a>
+            </div>
+          </div>
         </div>
+      </div>
 
+      {/* Main Content */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Loading Indicator */}
         {isLoading && (
           <div className="flex justify-center items-center py-12">
@@ -373,17 +381,22 @@ export default function ImageShowcase() {
           </div>
         )}
 
-        {/* Image Grid */}
-        <div className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 transition-opacity duration-300 ${isLoading ? 'opacity-50' : 'opacity-100'}`}>
+        {/* Masonry Grid - Pixverse Style */}
+        <div className={`columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-4 space-y-4 transition-opacity duration-300 ${isLoading ? 'opacity-50' : 'opacity-100'}`}>
           {filteredImages.map((image, index) => (
             <div
               key={image.id}
-              className="group relative bg-gray-900 rounded-2xl overflow-hidden border border-gray-800 hover:border-purple-500/50 transition-all cursor-pointer animate-fade-in"
-              style={{ animationDelay: `${index * 0.05}s` }}
+              className="group relative bg-gray-900 rounded-xl overflow-hidden border border-gray-800 hover:border-purple-500/50 transition-all cursor-pointer break-inside-avoid mb-4"
               onClick={() => setSelectedImage(image)}
             >
-              {/* Image */}
-              <div className="aspect-[3/4] bg-gradient-to-br from-purple-900/30 to-pink-900/30 relative overflow-hidden">
+              {/* Image - Variable aspect ratio for masonry effect */}
+              <div className={`bg-gradient-to-br from-purple-900/30 to-pink-900/30 relative overflow-hidden ${
+                index % 5 === 0 ? 'aspect-[4/5]' :
+                index % 5 === 1 ? 'aspect-[3/4]' :
+                index % 5 === 2 ? 'aspect-[9/16]' :
+                index % 5 === 3 ? 'aspect-square' :
+                'aspect-[2/3]'
+              }`}>
                 <Image
                   src={image.url}
                   alt={image.title}
@@ -395,27 +408,22 @@ export default function ImageShowcase() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
               </div>
 
-              {/* Info */}
-              <div className="p-4">
-                <h3 className="text-white font-semibold mb-2 line-clamp-1">{image.title}</h3>
-                <p className="text-gray-400 text-sm mb-3 line-clamp-2">{image.prompt}</p>
+              {/* Hover Overlay with Info */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-4 flex flex-col justify-end">
+                <h3 className="text-white font-semibold mb-1 line-clamp-2">{image.title}</h3>
+                <p className="text-gray-300 text-xs mb-2 line-clamp-2">{image.prompt}</p>
                 <div className="flex items-center justify-between">
-                  <div className="flex items-center text-pink-500">
-                    <svg className="w-5 h-5 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                  <div className="flex items-center text-pink-400">
+                    <svg className="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clipRule="evenodd" />
                     </svg>
-                    <span className="text-sm font-medium">{image.likes.toLocaleString()}</span>
+                    <span className="text-xs font-medium">{image.likes.toLocaleString()}</span>
                   </div>
-                  <button className="text-purple-400 hover:text-purple-300 transition-colors">
-                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                    </svg>
-                  </button>
                 </div>
               </div>
 
               {/* Category Badge */}
-              <div className="absolute top-3 right-3">
+              <div className="absolute top-2 right-2">
                 <span className={`px-3 py-1 rounded-full text-xs font-semibold backdrop-blur-sm ${
                   image.category === 'realistic' ? 'bg-blue-500/80 text-white' :
                   image.category === 'anime' ? 'bg-pink-500/80 text-white' :
@@ -516,15 +524,6 @@ export default function ImageShowcase() {
           </div>
         )}
 
-        {/* CTA */}
-        <div className="text-center mt-16">
-          <a
-            href="/text-to-image"
-            className="inline-block bg-gradient-to-r from-purple-600 to-pink-600 text-white px-8 py-4 rounded-full text-lg font-semibold hover:shadow-2xl hover:shadow-purple-500/50 transition-all transform hover:scale-105"
-          >
-            开始创作您的专属作品
-          </a>
-        </div>
       </div>
     </section>
   )
